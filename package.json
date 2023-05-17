@@ -1,0 +1,15 @@
+{
+  "name": "Shopify",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@shopify/shopify-api": "^7.1.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.22",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6"
+  }
+}
