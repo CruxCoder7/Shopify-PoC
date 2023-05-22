@@ -64,7 +64,7 @@ app.get("/createwebhk", async (req, res) => {
 
 
 app.get("/", (req, res) => {
-    res.send("hiii");
+    res.send("hi");
 })
 
 app.listen(3000, () => {

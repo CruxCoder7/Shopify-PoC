@@ -11,5 +11,8 @@
     "nodemon": "^2.0.22",
     "request": "^2.88.2",
     "request-promise": "^4.2.6"
-  }
+  },
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"}
 }
