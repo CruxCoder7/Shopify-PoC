@@ -6,6 +6,12 @@ dotenv.config()
 
 const app = express()
 
+/**
+ *  API endpoint to create a webhook
+ *  Shopify will send the webhook event containing the payload to the `address` that we specifiy
+ *  The `topic` is the action, by doing which, the webhook will be triggered. (Eg: products/update, customer/update, products/delete)
+ *  The Access Token is the Shopify Store's access token
+ */
 app.get("/createwebhk", async (req, res) => {
     const resp = await fetch('https://tif-storee.myshopify.com/admin/api/2023-04/webhooks.json', {
         method: 'POST',
@@ -26,7 +32,13 @@ app.get("/createwebhk", async (req, res) => {
     res.json(val);
 })
 
-
+/**
+ * The endpoint of the `address` that we specified in the creation of the webhook. In this case, /newhook
+ * In this case, whenever a product is created - The `topic` that we specified in the creation of the webhook, 
+ * Shopify will send a hmacHeader. We have to generate a hash with this header and compare it with our Store's Secret Key.
+ * The Payload sent by Shopify is in Buffer format. We have to convert it into JSON.
+ * In this case, the payload will contain all the details about the product that we just created.
+ */
 app.post('/newhook', express.raw({ type: 'application/json' }), (req, res) => {
     const hmacHeader = req.get('X-Shopify-Hmac-SHA256');
     const payload = req.body;
@@ -54,6 +66,10 @@ app.post('/newhook', express.raw({ type: 'application/json' }), (req, res) => {
 
 });
 
+
+/**
+ * Endpoint to retrieve all products or all webhooks associated with our store.
+ */
 app.get("/data", (req, res) => {
     // req.query.resource = products | webhooks
     let url = `https://tif-storee.myshopify.com/admin/api/2023-04/${req.query.resource}.json`;
