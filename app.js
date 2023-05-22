@@ -33,7 +33,7 @@ app.get("/createwebhk", async (req, res) => {
 })
 
 /**
- * The endpoint of the `address` that we specified in the creation of the webhook. In this case, /newhook
+ * This is the endpoint of the `address` that we specified in the creation of the webhook. In this case, /newhook.
  * In this case, whenever a product is created - The `topic` that we specified in the creation of the webhook, 
  * Shopify will send a hmacHeader. We have to generate a hash with this header and compare it with our Store's Secret Key.
  * The Payload sent by Shopify is in Buffer format. We have to convert it into JSON.
