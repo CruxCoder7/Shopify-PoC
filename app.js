@@ -21,7 +21,7 @@ app.get("/create_webhook", async (req, res) => {
         },
         body: JSON.stringify({
             'webhook': {
-                'address': 'https://https://beta.client.dyrect.internetfolks.in/api/create_product',
+                'address': 'https://beta.client.dyrect.internetfolks.in/api/v1/product/create_product',
                 'topic': 'products/create',
                 'format': 'json'
             }
