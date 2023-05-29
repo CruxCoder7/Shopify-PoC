@@ -13,7 +13,7 @@ const app = express()
  *  The Access Token is the Shopify Store's access token
  */
 app.get("/create_webhook", async (req, res) => {
-    const resp = await fetch('https://2c746c.myshopify.com/admin/api/2023-04/webhooks.json', {
+    const resp = await fetch('https://tif-dyrect.myshopify.com/admin/api/2023-04/webhooks.json', {
         method: 'POST',
         headers: {
             'X-Shopify-Access-Token': process.env.SHOPIFY_ACCESS_TOKEN,
@@ -21,7 +21,7 @@ app.get("/create_webhook", async (req, res) => {
         },
         body: JSON.stringify({
             'webhook': {
-                'address': 'https://beta.client.dyrect.internetfolks.in/api/v1/product/create_product',
+                'address': 'https://9bda-103-218-237-121.ngrok-free.app/api/v1/shopify/testdev/product',
                 'topic': 'products/create',
                 'format': 'json'
             }
