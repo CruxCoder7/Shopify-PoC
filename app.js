@@ -21,8 +21,8 @@ app.get("/create_webhook", async (req, res) => {
         },
         body: JSON.stringify({
             'webhook': {
-                'address': 'https://9bda-103-218-237-121.ngrok-free.app/api/v1/shopify/testdev/product',
-                'topic': 'products/create',
+                'address': 'https://d7fe-103-218-237-96.ngrok-free.app/api/v1/shopify/product_update?client=testdev',
+                'topic': 'products/update',
                 'format': 'json'
             }
         })
